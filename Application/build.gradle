@@ -30,7 +30,7 @@ android {
 }
 
 apply plugin: 'io.gitlab.arturbosch.detekt'
-detekt {
+tasks.named("detekt").configure {
     reports {
         // Enable/Disable XML report (default: true)
         xml.required.set(true)
@@ -41,6 +41,9 @@ detekt {
         // Enable/Disable TXT report (default: true)
         txt.required.set(true)
         txt.outputLocation.set(file("det_reports/detekt.txt"))
+
+        sarif.required.set(false)
+        md.required.set(false)
     }
 }
 
