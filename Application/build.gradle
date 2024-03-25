@@ -32,12 +32,15 @@ android {
 apply plugin: 'io.gitlab.arturbosch.detekt'
 detekt {
     reports {
-        html.enabled = true
-        html.outputLocation=file("detekt_reports/detekt.html")
-        txt.enabled = true
-        txt.outputLocation=file("detekt_reports/detekt.txt")
-        xml.enabled = true
-        xmk.outputLocation=file("detekt_reports/detekt.xml")
+        // Enable/Disable XML report (default: true)
+        xml.required.set(true)
+        xml.outputLocation.set(file("det_reports/detekt.xml"))
+        // Enable/Disable HTML report (default: true)
+        html.required.set(true)
+        html.outputLocation.set(file("det_reports/detekt.html"))
+        // Enable/Disable TXT report (default: true)
+        txt.required.set(true)
+        txt.outputLocation.set(file("det_reports/detekt.txt"))
     }
 }
 
